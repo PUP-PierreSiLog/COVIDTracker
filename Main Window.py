@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import ttk
 
 class COVIDTracker(tk.Tk):
     #Initial State
@@ -8,7 +9,7 @@ class COVIDTracker(tk.Tk):
     
         #Main Window
         self.title("COVID-19 Tracker")
-        self.geometry("500x500")
+        self.geometry("500x300")
 
         #HDF Title
         self.HDF_title = tk.Label(self, text = "Health Declaration Form", font="arial 12")
@@ -19,14 +20,29 @@ class COVIDTracker(tk.Tk):
         self.HDF_Content.pack()
 
         #Ok button
-        self.button = tk.Button(self, text = "Ok", command=self.ok_button_clicked)
+        self.button = tk.Button(self, text = "Ok", command=self.HDF_proper)
         self.button.pack()
     
     #Second Window
+    def HDF_proper(self):
+        self.withdraw()
+        SecondWindow()
 
     #Response when Ok button is clicked
     def ok_button_clicked(self):
         messagebox.showinfo("Response", "Response Recorded!")
+
+class SecondWindow(tk.Toplevel):
+    def __init__(self):
+        super().__init__()
+
+        #Second Window
+        self.title("Health Declaration Form")
+        self.geometry("600x600")
+
+        #Instruction
+        self.label = ttk.Label(self, text="Please enter correct information in the required fields.")
+        self.label.pack
 
 if __name__ == "__main__":
     CTracker = COVIDTracker()
