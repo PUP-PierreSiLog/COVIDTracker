@@ -7,12 +7,15 @@ class COVIDTracker(tk.Tk):
     
         #Main Window
         self.title("COVID-19 Tracker")
-        self.geometry("1000x1000")
+        self.geometry("500x500")
 
         #Label
-        self.label = ttk.Label(self, text = "Health Declaration Form")
-        self.label.pack()
+        self.HDF_title = ttk.Label(self, text = "Health Declaration Form")
+        self.HDF_title.pack()
 
+        #Label2
+        self.HDF_Content = ttk.Label(self, text = "I declare under oath that I personally accomplished this Health Declaration form. Further, I declare that the information given are true, correct, and complete statements pursuant to the provisions of pertinent laws, rules, and regulations of the Republic of the Philippines.")
+        self.HDF_Content.pack()
 
 if __name__ == "__main__":
     CTracker = COVIDTracker()
