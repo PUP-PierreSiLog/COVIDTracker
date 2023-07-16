@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 
 class COVIDTracker(tk.Tk):
+    #Initial State
     def __init__(self):
         super().__init__()
     
@@ -18,11 +19,14 @@ class COVIDTracker(tk.Tk):
         self.HDF_Content.pack()
 
         #Ok button
-        self.button = tk.Button(self, text = "Ok", command=self.button_clicked)
+        self.button = tk.Button(self, text = "Ok", command=self.ok_button_clicked)
         self.button.pack()
+    
+    #Second Window
 
-    def button_clicked(self):
-        messagebox.showinfo("Message", "Response Recorded!")
+    #Response when Ok button is clicked
+    def ok_button_clicked(self):
+        messagebox.showinfo("Response", "Response Recorded!")
 
 if __name__ == "__main__":
     CTracker = COVIDTracker()
