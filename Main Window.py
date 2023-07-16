@@ -1,5 +1,5 @@
 import tkinter as tk
-import tkinter as ttk
+from tkinter import messagebox
 
 class COVIDTracker(tk.Tk):
     def __init__(self):
@@ -9,13 +9,20 @@ class COVIDTracker(tk.Tk):
         self.title("COVID-19 Tracker")
         self.geometry("500x500")
 
-        #Label
-        self.HDF_title = ttk.Label(self, text = "Health Declaration Form", font="arial 12")
+        #HDF Title
+        self.HDF_title = tk.Label(self, text = "Health Declaration Form", font="arial 12")
         self.HDF_title.pack()
 
-        #Label2
-        self.HDF_Content = ttk.Label(self, text = "I declare under oath that I personally accomplished this Health Declaration form. Further, I declare that the information given are true, correct, and complete statements pursuant to the provisions of pertinent laws, rules, and regulations of the Republic of the Philippines.", wraplength=300, justify="center")
+        #HDF Content
+        self.HDF_Content = tk.Label(self, text = "I declare under oath that I personally accomplished this Health Declaration form. Further, I declare that the information given are true, correct, and complete statements pursuant to the provisions of pertinent laws, rules, and regulations of the Republic of the Philippines.", wraplength=300, justify="center")
         self.HDF_Content.pack()
+
+        #Ok button
+        self.button = tk.Button(self, text = "Ok", command=self.button_clicked)
+        self.button.pack()
+
+    def button_clicked(self):
+        messagebox.showinfo("Message", "Response Recorded!")
 
 if __name__ == "__main__":
     CTracker = COVIDTracker()
