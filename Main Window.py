@@ -42,31 +42,31 @@ class SecondWindow(tk.Toplevel):
 
         #Instruction
         self.label = tk.Label(self, text="Please enter correct information in the required fields.", font="arial 12")
-        self.label.pack()
+        self.label.grid(row=0, column=0, columnspan=2)
 
         #User enters name here
         self.name_label=tk.Label(self, text="Name:")
         self.name_entry=tk.Entry(self, width="50")
-        self.name_label.grid(row=0, column=0)
-        self.name_entry.grid(row=0, column=1)
+        self.name_label.grid(row=1, column=0, sticky="e")
+        self.name_entry.grid(row=1, column=1)
 
         #User enters age here
         self.age_label=tk.Label(self, text="Age:")
         self.age_entry=tk.Entry(self, width="50")
-        self.age_label.pack()
-        self.age_entry.pack()
+        self.age_label.grid(row=2, column=0, sticky="e")
+        self.age_entry.grid(row=2, column=1)
 
         #User enters contact number here
         self.contact_number_label=tk.Label(self, text="Contact Number:")
         self.contact_number_entry=tk.Entry(self, width="50")
-        self.contact_number_label.pack()
-        self.contact_number_entry.pack()
+        self.contact_number_label.grid(row=3, column=0, sticky="e")
+        self.contact_number_entry.grid(row=3, column=1)
 
         #User enters address here
         self.address_label=tk.Label(self, text="Address:")
         self.address_entry=tk.Entry(self, width="50")
-        self.address_label.pack()
-        self.address_entry.pack()
+        self.address_label.grid(row=4, column=0, sticky="e")
+        self.address_entry.grid(row=4, column=1)
 
 if __name__ == "__main__":
     CTracker = COVIDTracker()
