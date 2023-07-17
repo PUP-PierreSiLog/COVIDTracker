@@ -68,6 +68,18 @@ class SecondWindow(tk.Toplevel):
         self.address_label.grid(row=4, column=0, sticky="e")
         self.address_entry.grid(row=4, column=1)
 
+    #User checks their symptoms present
+        #Instruction
+        self.radiobutton_instruction=tk.Label(self, text="Please put a mark on the buttons next to each question.", font="arial 12")
+        self.radiobutton_instruction.grid(row=6, column=0, columnspan=2)
+        #Fever
+        self.fever_label=tk.Label(self, text="Are you currently or have experienced the following symptoms in the past 14 days?", wraplength=80)
+        self.fever_radio_yes=tk.Radiobutton(self, text="Yes")
+        self.fever_radio_no=tk.Radiobutton(self, text="No")
+        self.fever_label.grid(row=7, column=0, sticky="e")
+        self.fever_radio_yes.grid(row=7, column=1)
+        self.fever_radio_no.grid(row=7, column=2)
+
 if __name__ == "__main__":
     CTracker = COVIDTracker()
     CTracker.mainloop()
