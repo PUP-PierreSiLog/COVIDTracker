@@ -46,10 +46,21 @@ class SecondWindow(tk.Toplevel):
 
         #User enters name here
         self.name_label=tk.Label(self, text="Name:")
+        self.name_entry=tk.Entry(self, width="50")
         self.name_label.pack()
-        self.name_entry=tk.Entry(self)
         self.name_entry.pack()
 
+        #User enters age here
+        self.age_label=tk.Label(self, text="Age:")
+        self.age_entry=tk.Entry(self, width="50")
+        self.age_label.pack()
+        self.age_entry.pack()
+
+        #User enters contact number here
+        self.contact_number_label=tk.Label(self, text="Contact Number:")
+        self.contact_number_entry=tk.Entry(self, width="50")
+        self.contact_number_label.pack()
+        self.contact_number_entry.pack()
 
 if __name__ == "__main__":
     CTracker = COVIDTracker()
