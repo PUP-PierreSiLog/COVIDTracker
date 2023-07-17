@@ -41,8 +41,15 @@ class SecondWindow(tk.Toplevel):
         self.geometry("600x600")
 
         #Instruction
-        self.label = ttk.Label(self, text="Please enter correct information in the required fields.")
-        self.label.pack
+        self.label = tk.Label(self, text="Please enter correct information in the required fields.", font="arial 12")
+        self.label.pack()
+
+        #User enters name here
+        self.name_label=tk.Label(self, text="Name:")
+        self.name_label.pack()
+        self.name_entry=tk.Entry(self)
+        self.name_entry.pack()
+
 
 if __name__ == "__main__":
     CTracker = COVIDTracker()
