@@ -71,15 +71,56 @@ class SecondWindow(tk.Toplevel):
     #User checks their symptoms present
         #Instruction
         self.radiobutton_instruction=tk.Label(self, text="Please put a mark on the buttons next to each question.", font="arial 12")
-        self.radiobutton_instruction.grid(row=6, column=0, columnspan=2)
+        self.radiobutton_instruction.grid(row=6, column=0, columnspan=4)
+
+        #General Symptoms
+        self.symptoms_label=tk.Label(self, text="Are you currently or have experienced the following symptoms in the past 14 days?", wraplength=90)
+        self.symptoms_label.grid(row=7, column=0, sticky="e", rowspan=9)
+
         #Fever
-        self.fever_label=tk.Label(self, text="Are you currently or have experienced the following symptoms in the past 14 days?", wraplength=80)
+        self.fever_label=tk.Label(self, text="Fever")
         self.fever_radio_yes=tk.Radiobutton(self, text="Yes")
         self.fever_radio_no=tk.Radiobutton(self, text="No")
-        self.fever_label.grid(row=7, column=0, sticky="e")
-        self.fever_radio_yes.grid(row=7, column=1)
-        self.fever_radio_no.grid(row=7, column=2)
+        #Fever->Alignment
+        self.fever_label.grid(row=7, column=1)
+        self.fever_radio_yes.grid(row=7, column=2)
+        self.fever_radio_no.grid(row=7, column=3)
 
+        #Colds
+        self.colds_label=tk.Label(self, text="Cough and/or Colds")
+        self.colds_radio_yes=tk.Radiobutton(self, text="Yes")
+        self.colds_radio_no=tk.Radiobutton(self, text="No")
+        #Colds->Alignment
+        self.colds_label.grid(row=8, column=1)
+        self.colds_radio_yes.grid(row=8, column=2)
+        self.colds_radio_no.grid(row=8, column=3)
+
+        #Body Pains
+        self.body_pains_label=tk.Label(self, text="Body Pains")
+        self.body_pains_radio_yes=tk.Radiobutton(self, text="Yes")
+        self.body_pains_radio_no=tk.Radiobutton(self, text="No")
+        #Body Pains->Alignment
+        self.body_pains_label.grid(row=9, column=1)
+        self.body_pains_radio_yes.grid(row=9, column=2)
+        self.body_pains_radio_no.grid(row=9, column=3)
+
+        #Sore Throat
+        self.sore_throat_label=tk.Label(self, text="Sore Throat")
+        self.sore_throat_radio_yes=tk.Radiobutton(self, text="Yes")
+        self.sore_throat_radio_no=tk.Radiobutton(self, text="No")
+        #Sore Throat->Alignment
+        self.sore_throat_label.grid(row=10, column=1)
+        self.sore_throat_radio_yes.grid(row=10, column=2)
+        self.sore_throat_radio_no.grid(row=10, column=3)
+
+        #Fatigue
+        self.fatigue_label=tk.Label(self, text="Fatigue")
+        self.fatigue_radio_yes=tk.Radiobutton(self, text="Yes")
+        self.fatigue_radio_no=tk.Radiobutton(self, text="No")
+        #Fatigue->Alignment
+        self.fatigue_label.grid(row=11, column=1)
+        self.fatigue_radio_yes.grid(row=11, column=2)
+        self.fatigue_radio_no.grid(row=11, column=3)
 if __name__ == "__main__":
     CTracker = COVIDTracker()
     CTracker.mainloop()
