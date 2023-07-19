@@ -28,16 +28,28 @@ class COVIDTracker(tk.Tk):
         self.button = tk.Button(self, text = "Ok", command=self.HDF_proper)
         self.button.grid(row=3, column=0)
 
-        #Administrator
+        #Administrator Notice
         main_separator_h = tk.Canvas(self, height=2, bg="black")
         main_separator_h.grid(row=4, column=0, columnspan=4, sticky="ew")
         self.admin_title=tk.Label(self, text="NOTICE FOR ADMINISTRATORS", font=header_two_font)
         self.admin_title.grid(row=5, column=0)
+        self.admin_content=tk.Label(self, text="As part of the data privacy act, please enter the general administrator password to gain access to the search page.", wraplength=400)
+        self.admin_content.grid(row=6, column=0, sticky="ew")
+
+        #Administrator Log-in
+        self.admin_pass_label = tk.Label(self, text="Password")
+        self.admin_pass_entry=tk.Entry(self, width=50)
+        self.admin_pass_label.grid(row=7, column=0)
+        self.admin_pass_entry.grid(row=8, column=0)
+        self.login_button = tk.Button(text="Log in")
+        self.login_button.grid(row=9, column=0)
     
     #Second Window
     def HDF_proper(self):
         self.withdraw()
         SecondWindow()
+
+    #Admin Page
 
 
 
