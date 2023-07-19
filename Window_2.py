@@ -3,6 +3,7 @@ from tkinter import ttk
 from tkinter import font
 from tkinter import messagebox
 import csv
+import os
 class SecondWindow(tk.Toplevel):
     def save_user_response(self):
         #Get responses from the Widgets
@@ -23,14 +24,19 @@ class SecondWindow(tk.Toplevel):
         international_travel_response = self.radio_travel_international_var.get()
         domestic_travel_response = self.radio_travel_domestic_var.get()
         domestic_travel_place_response = self.travel_dom_entry.get()
+
+        # Set the desired directory path
+        directory_path = "D:\[CMPE103] OOP\Final_Project"
+
+        # Change the current directory to the desired path
+        os.chdir(directory_path)
         #Creation of a CSV file
-        with open("COVID Contact Trace.csv", "w", newline="") as file:
+        with open("COVID_CT.csv", mode="a", newline="") as file:
             writer = csv.writer(file)
             writer.writerow(["Name", "Age", "Contact Number", "Address", "Fever Response", "Cough Response", "Pains Response", "Sore Throat Response", "Fatigue Response", "Diarrhea Response", "Taste Respomnse", "Breathing Response", "Close Contact?", "Contact without PPE?", "Went for Int'l Travel?", "Went for Domestic Travel?", "If yes, where?"])
             writer.writerow([name, age, contact_number, address, fever_response, cough_response, pains_response, sore_throat_response, fatigue_response, diarrhea_response, taste_response, breathing_response, ftf_response, PPE_response, international_travel_response, domestic_travel_response, domestic_travel_place_response])
         
         messagebox.showinfo("Response", "Response Recorded!")
-        self.save_user_response()
         
 
     def radio_select(self):
