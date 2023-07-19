@@ -5,12 +5,28 @@ from tkinter import messagebox
 import csv
 class SecondWindow(tk.Toplevel):
     def save_user_response(self):
+        #Get responses from the Widgets
         name=self.name_entry.get()
         age = self.age_entry.get()
         contact_number = self.contact_number_entry.get()
         address = self.address_entry.get()
         fever_response = self.radio_fever_var.get()
         cough_response = self.radio_cough_var.get()
+        pains_response = self.radio_pains_var.get()
+        sore_throat_response = self.radio_sore_throat_var.get()
+        fatigue_response = self.radio_fatigue_var.get()
+        diarrhea_response = self.radio_diarrhea_var.get()
+        taste_response = self. radio_taste_var.get()
+        breathing_response = self.radio_breathing_var.get()
+        ftf_response = self.radio_ftf_var.get()
+        PPE_response = self.radio_PPE_var.get()
+        international_travel_response = self.radio_travel_international_var.get()
+        domestic_travel_response = self.radio_travel_domestic_var.get()
+        domestic_travel_place_response = self.travel_dom_entry.get()
+        #Creation of a CSV file
+        with open("COVID Contact Trace.csv", "w", newline="") as file:
+            writer = csv.writer(file)
+        
 
     def ok_button_clicked(self):
         messagebox.showinfo("Response", "Response Recorded!")
