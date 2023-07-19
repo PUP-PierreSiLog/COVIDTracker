@@ -33,6 +33,11 @@ class COVIDTracker(tk.Tk):
         messagebox.showinfo("Response", "Response Recorded!")
 
 class SecondWindow(tk.Toplevel):
+    def radio_select():
+        radio_var=tk.StringVar()
+        selected_option=radio_var.get()
+        return selected_option
+
     def __init__(self):
         super().__init__()
 
@@ -73,6 +78,14 @@ class SecondWindow(tk.Toplevel):
 
     #Separates part 1 from part 2
         main_separator_h.grid(row=5, column=0, columnspan=4, sticky="ew")
+
+    #Radio Button Style
+        style = ttk.Style()
+        style.configure("Tradiobutton", relief="flat", borderwidth=0)
+    
+    #Radio Variable Handling
+        radio_handling = self.radio_select()
+
     #User checks their symptoms present
         #Instruction
         self.radiobutton_instruction=tk.Label(self, text="Please put your response on the buttons next to each question.", font="arial 12")
@@ -84,8 +97,8 @@ class SecondWindow(tk.Toplevel):
 
         #Fever
         self.fever_label=tk.Label(self, text="Fever")
-        self.fever_radio_yes=tk.Radiobutton(self, text="Yes")
-        self.fever_radio_no=tk.Radiobutton(self, text="No")
+        self.fever_radio_yes=ttk.Radiobutton(self, text="Yes", command=radio_handling)
+        self.fever_radio_no=ttk.Radiobutton(self, text="No", command=radio_handling)
         #Fever->Alignment
         self.fever_label.grid(row=7, column=1)
         self.fever_radio_yes.grid(row=7, column=2)
@@ -93,8 +106,8 @@ class SecondWindow(tk.Toplevel):
 
         #Colds
         self.colds_label=tk.Label(self, text="Cough and/or Colds")
-        self.colds_radio_yes=tk.Radiobutton(self, text="Yes")
-        self.colds_radio_no=tk.Radiobutton(self, text="No")
+        self.colds_radio_yes=ttk.Radiobutton(self, text="Yes")
+        self.colds_radio_no=ttk.Radiobutton(self, text="No")
         #Colds->Alignment
         self.colds_label.grid(row=8, column=1)
         self.colds_radio_yes.grid(row=8, column=2)
@@ -102,8 +115,8 @@ class SecondWindow(tk.Toplevel):
 
         #Body Pains
         self.body_pains_label=tk.Label(self, text="Body Pains")
-        self.body_pains_radio_yes=tk.Radiobutton(self, text="Yes")
-        self.body_pains_radio_no=tk.Radiobutton(self, text="No")
+        self.body_pains_radio_yes=ttk.Radiobutton(self, text="Yes")
+        self.body_pains_radio_no=ttk.Radiobutton(self, text="No")
         #Body Pains->Alignment
         self.body_pains_label.grid(row=9, column=1)
         self.body_pains_radio_yes.grid(row=9, column=2)
@@ -111,8 +124,8 @@ class SecondWindow(tk.Toplevel):
 
         #Sore Throat
         self.sore_throat_label=tk.Label(self, text="Sore Throat")
-        self.sore_throat_radio_yes=tk.Radiobutton(self, text="Yes")
-        self.sore_throat_radio_no=tk.Radiobutton(self, text="No")
+        self.sore_throat_radio_yes=ttk.Radiobutton(self, text="Yes")
+        self.sore_throat_radio_no=ttk.Radiobutton(self, text="No")
         #Sore Throat->Alignment
         self.sore_throat_label.grid(row=10, column=1)
         self.sore_throat_radio_yes.grid(row=10, column=2)
@@ -120,8 +133,8 @@ class SecondWindow(tk.Toplevel):
 
         #Fatigue
         self.fatigue_label=tk.Label(self, text="Fatigue")
-        self.fatigue_radio_yes=tk.Radiobutton(self, text="Yes")
-        self.fatigue_radio_no=tk.Radiobutton(self, text="No")
+        self.fatigue_radio_yes=ttk.Radiobutton(self, text="Yes")
+        self.fatigue_radio_no=ttk.Radiobutton(self, text="No")
         #Fatigue->Alignment
         self.fatigue_label.grid(row=11, column=1)
         self.fatigue_radio_yes.grid(row=11, column=2)
@@ -129,8 +142,8 @@ class SecondWindow(tk.Toplevel):
 
         #Diarrhea
         self.diarrhea_label=tk.Label(self, text="Diarrhea")
-        self.diarrhea_radio_yes=tk.Radiobutton(self, text="Yes")
-        self.diarrhea_radio_no=tk.Radiobutton(self, text="No")
+        self.diarrhea_radio_yes=ttk.Radiobutton(self, text="Yes")
+        self.diarrhea_radio_no=ttk.Radiobutton(self, text="No")
         #Diarrhea->Alignment
         self.diarrhea_label.grid(row=12, column=1)
         self.diarrhea_radio_yes.grid(row=12, column=2)
@@ -138,8 +151,8 @@ class SecondWindow(tk.Toplevel):
 
         #Loss of Taste
         self.taste_label=tk.Label(self, text="Loss of taste or smell")
-        self.taste_radio_yes=tk.Radiobutton(self, text="Yes")
-        self.taste_radio_no=tk.Radiobutton(self, text="No")
+        self.taste_radio_yes=ttk.Radiobutton(self, text="Yes")
+        self.taste_radio_no=ttk.Radiobutton(self, text="No")
         #Loss of Taste->Alignment
         self.taste_label.grid(row=13, column=1)
         self.taste_radio_yes.grid(row=13, column=2)
@@ -147,8 +160,8 @@ class SecondWindow(tk.Toplevel):
 
         #Breathing
         self.breathing_label=tk.Label(self, text="Difficulty Breathing")
-        self.breathing_radio_yes=tk.Radiobutton(self, text="Yes")
-        self.breathing_radio_no=tk.Radiobutton(self, text="No")
+        self.breathing_radio_yes=ttk.Radiobutton(self, text="Yes")
+        self.breathing_radio_no=ttk.Radiobutton(self, text="No")
         #Breathing->Alignment
         self.breathing_label.grid(row=14, column=1)
         self.breathing_radio_yes.grid(row=14, column=2)
@@ -157,8 +170,8 @@ class SecondWindow(tk.Toplevel):
         #Face to Face
         self.interactions_label=tk.Label(self, text="Have you had face-to-face contact with a probable or confirmed COVID-19 case within one (1) meter and for more than 15 minutes in the past 14 days?", wraplength=400)
         self.interactions_label.grid(row=15, column=0, sticky="w", columnspan=2)
-        self.interactions_radio_yes=tk.Radiobutton(self, text="Yes")
-        self.interactions_radio_no=tk.Radiobutton(self, text="No")
+        self.interactions_radio_yes=ttk.Radiobutton(self, text="Yes")
+        self.interactions_radio_no=ttk.Radiobutton(self, text="No")
         #Face-to-Face->Alignment
         self.interactions_label.grid(row=15, column=0)
         self.interactions_radio_yes.grid(row=15, column=2)
@@ -167,8 +180,8 @@ class SecondWindow(tk.Toplevel):
         #PPE
         self.ppe_label=tk.Label(self, text="Have you provided direct care for a patient with a probable or confirmed COVID-19 case without using PPE for the past 14 days?", wraplength=400)
         self.ppe_label.grid(row=15, column=0, sticky="w", columnspan=2)
-        self.ppe_radio_yes=tk.Radiobutton(self, text="Yes")
-        self.ppe_radio_no=tk.Radiobutton(self, text="No")
+        self.ppe_radio_yes=ttk.Radiobutton(self, text="Yes")
+        self.ppe_radio_no=ttk.Radiobutton(self, text="No")
         #PPE->Alignment
         self.ppe_label.grid(row=16, column=0)
         self.ppe_radio_yes.grid(row=16, column=2)
@@ -177,8 +190,8 @@ class SecondWindow(tk.Toplevel):
         #Travel International
         self.travel_label=tk.Label(self, text="Have you traveled outside the Philippines for the last 14 days?", wraplength=400)
         self.travel_label.grid(row=15, column=0, sticky="w", columnspan=2)
-        self.travel_radio_yes=tk.Radiobutton(self, text="Yes")
-        self.travel_radio_no=tk.Radiobutton(self, text="No")
+        self.travel_radio_yes=ttk.Radiobutton(self, text="Yes")
+        self.travel_radio_no=ttk.Radiobutton(self, text="No")
         #Travel International->Alignment
         self.travel_label.grid(row=17, column=0)
         self.travel_radio_yes.grid(row=17, column=2)
@@ -189,8 +202,8 @@ class SecondWindow(tk.Toplevel):
         self.travel_dom_label_entry=tk.Label(self, text="If your answer is yes, specify where in the field on your right.", wraplength=400)
         self.travel_dom_entry=tk.Entry(self, width=25)
         self.travel_dom_label.grid(row=15, column=0, sticky="w", columnspan=2)
-        self.travel_dom_radio_yes=tk.Radiobutton(self, text="Yes")
-        self.travel_dom_radio_no=tk.Radiobutton(self, text="No")
+        self.travel_dom_radio_yes=ttk.Radiobutton(self, text="Yes")
+        self.travel_dom_radio_no=ttk.Radiobutton(self, text="No")
         #Travel International->Alignment
         self.travel_dom_label.grid(row=18, column=0)
         self.travel_dom_label_entry.grid(row=19, column=0, columnspan=2)
