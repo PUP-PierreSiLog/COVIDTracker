@@ -2,9 +2,20 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import font
 from tkinter import messagebox
+import csv
 class SecondWindow(tk.Toplevel):
+    def save_user_response(self):
+        name=self.name_entry.get()
+        age = self.age_entry.get()
+        contact_number = self.contact_number_entry.get()
+        address = self.address_entry.get()
+        fever_response = self.radio_fever_var.get()
+        cough_response = self.radio_cough_var.get()
+
     def ok_button_clicked(self):
         messagebox.showinfo("Response", "Response Recorded!")
+        self.save_user_response()
+        
 
     def radio_select(self):
         selected_option=self.radio_var.get()
