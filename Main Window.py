@@ -70,7 +70,7 @@ class SecondWindow(tk.Toplevel):
 
     #User checks their symptoms present
         #Instruction
-        self.radiobutton_instruction=tk.Label(self, text="Please put a mark on the buttons next to each question.", font="arial 12")
+        self.radiobutton_instruction=tk.Label(self, text="Please put your response on the buttons next to each question.", font="arial 12")
         self.radiobutton_instruction.grid(row=6, column=0, columnspan=4)
 
         #General Symptoms
@@ -121,6 +121,33 @@ class SecondWindow(tk.Toplevel):
         self.fatigue_label.grid(row=11, column=1)
         self.fatigue_radio_yes.grid(row=11, column=2)
         self.fatigue_radio_no.grid(row=11, column=3)
+
+        #Diarrhea
+        self.diarrhea_label=tk.Label(self, text="Diarrhea")
+        self.diarrhea_radio_yes=tk.Radiobutton(self, text="Yes")
+        self.diarrhea_radio_no=tk.Radiobutton(self, text="No")
+        #Diarrhea->Alignment
+        self.diarrhea_label.grid(row=12, column=1)
+        self.diarrhea_radio_yes.grid(row=12, column=2)
+        self.diarrhea_radio_no.grid(row=12, column=3)
+
+        #Loss of Taste
+        self.taste_label=tk.Label(self, text="Loss of taste or smell")
+        self.taste_radio_yes=tk.Radiobutton(self, text="Yes")
+        self.taste_radio_no=tk.Radiobutton(self, text="No")
+        #Loss of Taste->Alignment
+        self.taste_label.grid(row=13, column=1)
+        self.taste_radio_yes.grid(row=13, column=2)
+        self.taste_radio_no.grid(row=13, column=3)
+
+        #Breathing
+        self.breathing_label=tk.Label(self, text="Difficulty Breathing")
+        self.breathing_radio_yes=tk.Radiobutton(self, text="Yes")
+        self.breathing_radio_no=tk.Radiobutton(self, text="No")
+        #Breathing->Alignment
+        self.breathing_label.grid(row=14, column=1)
+        self.breathing_radio_yes.grid(row=14, column=2)
+        self.breathing_radio_no.grid(row=14, column=3)
 if __name__ == "__main__":
     CTracker = COVIDTracker()
     CTracker.mainloop()
