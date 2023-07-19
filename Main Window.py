@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import font
 from Window_2 import SecondWindow
+from Window_3 import Admin
 
 class COVIDTracker(tk.Tk):
     #Initial State
@@ -38,10 +39,10 @@ class COVIDTracker(tk.Tk):
 
         #Administrator Log-in
         self.admin_pass_label = tk.Label(self, text="Password")
-        self.admin_pass_entry=tk.Entry(self, width=50)
+        self.admin_pass_entry=tk.Entry(self, width=50, show="*")
         self.admin_pass_label.grid(row=7, column=0)
         self.admin_pass_entry.grid(row=8, column=0)
-        self.login_button = tk.Button(text="Log in")
+        self.login_button = tk.Button(text="Log in", command=self.admin_login)
         self.login_button.grid(row=9, column=0)
     
     #Second Window
@@ -50,6 +51,13 @@ class COVIDTracker(tk.Tk):
         SecondWindow()
 
     #Admin Page
+    def admin_login(self):
+        login_pass = self.admin_pass_entry.get()
+        if login_pass == "abcde":
+            self.withdraw()
+            Admin()
+        else:
+            messagebox.showinfo("Incorrect Password", "Incorrect Password!")
 
 
 
