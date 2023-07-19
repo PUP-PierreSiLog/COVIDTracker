@@ -40,9 +40,12 @@ class SecondWindow(tk.Toplevel):
         self.title("Health Declaration Form")
         self.geometry("600x600")
 
+        #Separator
+        separator_h = tk.Canvas(self, height=2, bg="black")
+
         #Instruction
         self.label = tk.Label(self, text="Please enter correct information in the required fields.", font="arial 12")
-        self.label.grid(row=0, column=0, columnspan=2)
+        self.label.grid(row=0, column=0, sticky="w", columnspan=4)
 
         #User enters name here
         self.name_label=tk.Label(self, text="Name:")
@@ -68,6 +71,8 @@ class SecondWindow(tk.Toplevel):
         self.address_label.grid(row=4, column=0, sticky="e")
         self.address_entry.grid(row=4, column=1)
 
+    #Separates part 1 from part 2
+        separator_h.grid(row=5, column=0, columnspan=4, sticky="ew")
     #User checks their symptoms present
         #Instruction
         self.radiobutton_instruction=tk.Label(self, text="Please put your response on the buttons next to each question.", font="arial 12")
@@ -75,7 +80,7 @@ class SecondWindow(tk.Toplevel):
 
         #General Symptoms
         self.symptoms_label=tk.Label(self, text="Are you currently or have experienced the following symptoms in the past 14 days?", wraplength=90)
-        self.symptoms_label.grid(row=7, column=0, sticky="e", rowspan=9)
+        self.symptoms_label.grid(row=7, column=0, sticky="w", rowspan=8)
 
         #Fever
         self.fever_label=tk.Label(self, text="Fever")
@@ -148,6 +153,15 @@ class SecondWindow(tk.Toplevel):
         self.breathing_label.grid(row=14, column=1)
         self.breathing_radio_yes.grid(row=14, column=2)
         self.breathing_radio_no.grid(row=14, column=3)
+
+        #Face to Face
+        self.interactions_label=tk.Label(self, text="Have you had face-to-face contact with a probable or confirmed COVID-19 case within one (1) meter and for more than 15 minutes in the past 14 days?", wraplength=400)
+        self.interactions_label.grid(row=15, column=0, sticky="w", columnspan=2)
+        self.interactions_radio_yes=tk.Radiobutton(self, text="Yes")
+        self.interactions_radio_no=tk.Radiobutton(self, text="No")
+        #Face-to-Face->Alignment
+        self.interactions_radio_yes.grid(row=15, column=2)
+        self.interactions_radio_no.grid(row=15, column=3)
 if __name__ == "__main__":
     CTracker = COVIDTracker()
     CTracker.mainloop()
