@@ -33,7 +33,7 @@ class SecondWindow(tk.Toplevel):
         #Creation of a CSV file
         with open("COVID_CT.csv", mode="a", newline="") as file:
             writer = csv.writer(file)
-            writer.writerow(["Name", "Age", "Contact Number", "Address", "Fever Response", "Cough Response", "Pains Response", "Sore Throat Response", "Fatigue Response", "Diarrhea Response", "Taste Respomnse", "Breathing Response", "Close Contact?", "Contact without PPE?", "Went for Int'l Travel?", "Went for Domestic Travel?", "If yes, where?"])
+            writer.writerow(["Name", "Age", "Contact Number", "Address", "Fever Response", "Cough Response", "Pains Response", "Sore Throat Response", "Fatigue Response", "Diarrhea Response", "Taste Response", "Breathing Response", "Close Contact?", "Contact without PPE?", "Went for Int'l Travel?", "Went for Domestic Travel?", "If yes, where?"])
             writer.writerow([name, age, contact_number, address, fever_response, cough_response, pains_response, sore_throat_response, fatigue_response, diarrhea_response, taste_response, breathing_response, ftf_response, PPE_response, international_travel_response, domestic_travel_response, domestic_travel_place_response])
         
         messagebox.showinfo("Response", "Response Recorded!")
