@@ -83,7 +83,20 @@ class SecondWindow(tk.Toplevel):
         style.configure("Tradiobutton", relief="flat", borderwidth=0)
     
     #Radio Variable Handling
-        self.radio_var = tk.StringVar()
+        self.radio_fever_var = tk.StringVar()
+        self.radio_cough_var = tk.StringVar()
+        self.radio_pains_var = tk.StringVar()
+        self.radio_sore_throat_var = tk.StringVar()
+        self.radio_fatigue_var = tk.StringVar()
+        self.radio_headache_var = tk.StringVar()
+        self.radio_diarrhea_var = tk.StringVar()
+        self.radio_taste_var = tk.StringVar()
+        self.radio_breathing_var = tk.StringVar()
+        self.radio_ftf_var = tk.StringVar()
+        self.radio_PPE_var = tk.StringVar()
+        self.radio_travel_international_var = tk.StringVar()
+        self.radio_travel_domestic_var = tk.StringVar()
+
 
     #User checks their symptoms present
         #Instruction
@@ -96,8 +109,8 @@ class SecondWindow(tk.Toplevel):
 
         #Fever
         self.fever_label=tk.Label(self, text="Fever")
-        self.fever_radio_yes=ttk.Radiobutton(self, text="Yes", variable=self.radio_var, value="Y_Fever")
-        self.fever_radio_no=ttk.Radiobutton(self, text="No", variable=self.radio_var, value="N_Fever")
+        self.fever_radio_yes=ttk.Radiobutton(self, text="Yes", variable=self.radio_fever_var, value="Y_Fever")
+        self.fever_radio_no=ttk.Radiobutton(self, text="No", variable=self.radio_fever_var, value="N_Fever")
         #Fever->Alignment
         self.fever_label.grid(row=7, column=1)
         self.fever_radio_yes.grid(row=7, column=2)
@@ -105,8 +118,8 @@ class SecondWindow(tk.Toplevel):
 
         #Colds
         self.colds_label=tk.Label(self, text="Cough and/or Colds")
-        self.colds_radio_yes=ttk.Radiobutton(self, text="Yes", variable=self.radio_var, value="Y_colds")
-        self.colds_radio_no=ttk.Radiobutton(self, text="No", variable=self.radio_var, value="N_colds")
+        self.colds_radio_yes=ttk.Radiobutton(self, text="Yes", variable=self.radio_cough_var, value="Y_colds")
+        self.colds_radio_no=ttk.Radiobutton(self, text="No", variable=self.radio_cough_var, value="N_colds")
         #Colds->Alignment
         self.colds_label.grid(row=8, column=1)
         self.colds_radio_yes.grid(row=8, column=2)
@@ -114,8 +127,8 @@ class SecondWindow(tk.Toplevel):
 
         #Body Pains
         self.body_pains_label=tk.Label(self, text="Body Pains")
-        self.body_pains_radio_yes=ttk.Radiobutton(self, text="Yes", variable=self.radio_var, value="Y_pains")
-        self.body_pains_radio_no=ttk.Radiobutton(self, text="No", variable=self.radio_var, value="N_pains")
+        self.body_pains_radio_yes=ttk.Radiobutton(self, text="Yes", variable=self.radio_pains_var, value="Y_pains")
+        self.body_pains_radio_no=ttk.Radiobutton(self, text="No", variable=self.radio_pains_var, value="N_pains")
         #Body Pains->Alignment
         self.body_pains_label.grid(row=9, column=1)
         self.body_pains_radio_yes.grid(row=9, column=2)
