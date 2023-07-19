@@ -33,9 +33,8 @@ class COVIDTracker(tk.Tk):
         messagebox.showinfo("Response", "Response Recorded!")
 
 class SecondWindow(tk.Toplevel):
-    def radio_select():
-        radio_var=tk.StringVar()
-        selected_option=radio_var.get()
+    def radio_select(self):
+        selected_option=self.radio_var.get()
         return selected_option
 
     def __init__(self):
@@ -84,7 +83,7 @@ class SecondWindow(tk.Toplevel):
         style.configure("Tradiobutton", relief="flat", borderwidth=0)
     
     #Radio Variable Handling
-        radio_handling = self.radio_select()
+        self.radio_var = tk.StringVar()
 
     #User checks their symptoms present
         #Instruction
@@ -97,8 +96,8 @@ class SecondWindow(tk.Toplevel):
 
         #Fever
         self.fever_label=tk.Label(self, text="Fever")
-        self.fever_radio_yes=ttk.Radiobutton(self, text="Yes", command=radio_handling)
-        self.fever_radio_no=ttk.Radiobutton(self, text="No", command=radio_handling)
+        self.fever_radio_yes=ttk.Radiobutton(self, text="Yes", variable=self.radio_var, value="Y_Fever")
+        self.fever_radio_no=ttk.Radiobutton(self, text="No", variable=self.radio_var, value="N_Fever")
         #Fever->Alignment
         self.fever_label.grid(row=7, column=1)
         self.fever_radio_yes.grid(row=7, column=2)
