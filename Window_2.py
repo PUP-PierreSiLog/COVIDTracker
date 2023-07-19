@@ -1,6 +1,11 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter import font
+from tkinter import messagebox
 class SecondWindow(tk.Toplevel):
+    def ok_button_clicked(self):
+        messagebox.showinfo("Response", "Response Recorded!")
+
     def radio_select(self):
         selected_option=self.radio_var.get()
         return selected_option
@@ -10,14 +15,17 @@ class SecondWindow(tk.Toplevel):
 
         #Second Window
         self.title("Health Declaration Form")
-        self.geometry("600x600")
+        self.geometry("560x560")
 
+        #Header Preferences
+        header_font=font.Font(self, family="Helvetica", size="12", weight="bold")
         #Separator
         main_separator_h = tk.Canvas(self, height=2, bg="black")
+        main_separator_h_2 = tk.Canvas(self, height=2, bg="black")
 
         #Instruction
-        self.label = tk.Label(self, text="Please enter correct information in the required fields.", font="arial 12")
-        self.label.grid(row=0, column=0, sticky="w", columnspan=4)
+        self.label = tk.Label(self, text="PART 1: PERSONAL INFORMATION", font=header_font)
+        self.label.grid(row=0, column=0, sticky="ew", columnspan=4)
 
         #User enters name here
         self.name_label=tk.Label(self, text="Name:")
@@ -68,7 +76,7 @@ class SecondWindow(tk.Toplevel):
 
     #User checks their symptoms present
         #Instruction
-        self.radiobutton_instruction=tk.Label(self, text="Please put your response on the buttons next to each question.", font="arial 12")
+        self.radiobutton_instruction=tk.Label(self, text="PART 2: SYMPTOMS, POSSIBLE EXPOSURES, AND TRAVEL HISTORY", font=header_font)
         self.radiobutton_instruction.grid(row=6, column=0, columnspan=4)
 
         #General Symptoms
@@ -190,3 +198,18 @@ class SecondWindow(tk.Toplevel):
         self.travel_dom_entry.grid(row=19, column=2, sticky="e", columnspan=2)
         self.travel_dom_radio_yes.grid(row=18, column=2)
         self.travel_dom_radio_no.grid(row=18, column=3)
+
+    #Submission Button
+        #Texts
+        main_separator_h_2.grid(row=20, column=0, columnspan=4, sticky="ew")
+        self.submit_instruction=tk.Label(self, text="PART 3: SUBMISSION OF DATA", font=header_font)
+        self.final_label=tk.Label(self, text="Please click the Submit button on your right if you are done.", wraplength=400)
+        self.submit_instruction.grid(row=21, column=0, sticky="ew", columnspan=4)
+        self.final_label.grid(row=22, column=0, columnspan=3)
+
+        #Buttton
+        self.submit_button=tk.Button(self, text="Submit", command=self.ok_button_clicked)
+        self.submit_button.grid(row=22, column=3)
+
+
+        

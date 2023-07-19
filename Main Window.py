@@ -28,9 +28,6 @@ class COVIDTracker(tk.Tk):
         self.withdraw()
         SecondWindow()
 
-    #Response when Ok button is clicked
-    def ok_button_clicked(self):
-        messagebox.showinfo("Response", "Response Recorded!")
 
 
 if __name__ == "__main__":
