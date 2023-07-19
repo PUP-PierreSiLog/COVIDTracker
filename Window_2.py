@@ -235,7 +235,7 @@ class SecondWindow(tk.Toplevel):
         self.final_label.grid(row=22, column=0, columnspan=3)
 
         #Buttton
-        self.submit_button=tk.Button(self, text="Submit", command=self.ok_button_clicked)
+        self.submit_button=tk.Button(self, text="Submit", command=self.save_user_response)
         self.submit_button.grid(row=22, column=3)
 
 
