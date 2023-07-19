@@ -41,7 +41,7 @@ class SecondWindow(tk.Toplevel):
         self.geometry("600x600")
 
         #Separator
-        separator_h = tk.Canvas(self, height=2, bg="black")
+        main_separator_h = tk.Canvas(self, height=2, bg="black")
 
         #Instruction
         self.label = tk.Label(self, text="Please enter correct information in the required fields.", font="arial 12")
@@ -51,28 +51,28 @@ class SecondWindow(tk.Toplevel):
         self.name_label=tk.Label(self, text="Name:")
         self.name_entry=tk.Entry(self, width="50")
         self.name_label.grid(row=1, column=0, sticky="e")
-        self.name_entry.grid(row=1, column=1)
+        self.name_entry.grid(row=1, column=1, columnspan=2)
 
         #User enters age here
         self.age_label=tk.Label(self, text="Age:")
         self.age_entry=tk.Entry(self, width="50")
         self.age_label.grid(row=2, column=0, sticky="e")
-        self.age_entry.grid(row=2, column=1)
+        self.age_entry.grid(row=2, column=1, columnspan=2)
 
         #User enters contact number here
         self.contact_number_label=tk.Label(self, text="Contact Number:")
         self.contact_number_entry=tk.Entry(self, width="50")
         self.contact_number_label.grid(row=3, column=0, sticky="e")
-        self.contact_number_entry.grid(row=3, column=1)
+        self.contact_number_entry.grid(row=3, column=1, columnspan=2)
 
         #User enters address here
         self.address_label=tk.Label(self, text="Address:")
         self.address_entry=tk.Entry(self, width="50")
         self.address_label.grid(row=4, column=0, sticky="e")
-        self.address_entry.grid(row=4, column=1)
+        self.address_entry.grid(row=4, column=1, columnspan=2)
 
     #Separates part 1 from part 2
-        separator_h.grid(row=5, column=0, columnspan=4, sticky="ew")
+        main_separator_h.grid(row=5, column=0, columnspan=4, sticky="ew")
     #User checks their symptoms present
         #Instruction
         self.radiobutton_instruction=tk.Label(self, text="Please put your response on the buttons next to each question.", font="arial 12")
@@ -160,8 +160,44 @@ class SecondWindow(tk.Toplevel):
         self.interactions_radio_yes=tk.Radiobutton(self, text="Yes")
         self.interactions_radio_no=tk.Radiobutton(self, text="No")
         #Face-to-Face->Alignment
+        self.interactions_label.grid(row=15, column=0)
         self.interactions_radio_yes.grid(row=15, column=2)
         self.interactions_radio_no.grid(row=15, column=3)
+
+        #PPE
+        self.ppe_label=tk.Label(self, text="Have you provided direct care for a patient with a probable or confirmed COVID-19 case without using PPE for the past 14 days?", wraplength=400)
+        self.ppe_label.grid(row=15, column=0, sticky="w", columnspan=2)
+        self.ppe_radio_yes=tk.Radiobutton(self, text="Yes")
+        self.ppe_radio_no=tk.Radiobutton(self, text="No")
+        #PPE->Alignment
+        self.ppe_label.grid(row=16, column=0)
+        self.ppe_radio_yes.grid(row=16, column=2)
+        self.ppe_radio_no.grid(row=16, column=3)
+
+        #Travel International
+        self.travel_label=tk.Label(self, text="Have you traveled outside the Philippines for the last 14 days?", wraplength=400)
+        self.travel_label.grid(row=15, column=0, sticky="w", columnspan=2)
+        self.travel_radio_yes=tk.Radiobutton(self, text="Yes")
+        self.travel_radio_no=tk.Radiobutton(self, text="No")
+        #Travel International->Alignment
+        self.travel_label.grid(row=17, column=0)
+        self.travel_radio_yes.grid(row=17, column=2)
+        self.travel_radio_no.grid(row=17, column=3)
+
+        #Travel Domestic
+        self.travel_dom_label=tk.Label(self, text="Have you traveled outside the municipality you currently reside in?", wraplength=400)
+        self.travel_dom_label_entry=tk.Label(self, text="If your answer is yes, specify where in the field on your right.", wraplength=400)
+        self.travel_dom_entry=tk.Entry(self, width=25)
+        self.travel_dom_label.grid(row=15, column=0, sticky="w", columnspan=2)
+        self.travel_dom_radio_yes=tk.Radiobutton(self, text="Yes")
+        self.travel_dom_radio_no=tk.Radiobutton(self, text="No")
+        #Travel International->Alignment
+        self.travel_dom_label.grid(row=18, column=0)
+        self.travel_dom_label_entry.grid(row=19, column=0, columnspan=2)
+        self.travel_dom_entry.grid(row=19, column=2, sticky="e", columnspan=2)
+        self.travel_dom_radio_yes.grid(row=18, column=2)
+        self.travel_dom_radio_no.grid(row=18, column=3)
+
 if __name__ == "__main__":
     CTracker = COVIDTracker()
     CTracker.mainloop()
