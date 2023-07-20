@@ -7,11 +7,8 @@ class Admin(tk.Toplevel):
     def search_for_name_in_CSV(self, query):
         results = []
         # Set the desired directory path
-        directory_path = "D:\[CMPE103] OOP\Final_Project"
-
-        # Change the current directory to the desired path
-        os.chdir(directory_path)
-        with open ("COVID CT.csv", "r") as file:
+        directory_path = os.path.join("D:/[CMPE103] OOP/Final_Project/", "COVID_CT.csv")
+        with open (directory_path, "r") as file:
             reader = csv.reader(file)
             for row in reader:
                 if query.lower in row[0].lower():
