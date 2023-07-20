@@ -58,7 +58,3 @@ class COVIDTracker(tk.Tk):
             Admin()
         else:
             messagebox.showinfo("Incorrect Password", "Incorrect Password!")
-
-if __name__ == "__main__":
-    CTracker = COVIDTracker()
-    CTracker.mainloop()
