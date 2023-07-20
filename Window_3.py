@@ -3,7 +3,7 @@ from tkinter import font
 import csv
 class Admin(tk.Toplevel):
     #Searching Mechanism
-    def search_for_name_in_CSV(query):
+    def search_for_name_in_CSV(self, query):
         results = []
         with open ("COVID CT.csv", "r") as file:
             reader = csv.reader(file)
