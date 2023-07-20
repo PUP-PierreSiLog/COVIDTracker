@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import font
 import csv
 import os
+from Window_2 import SecondWindow
 class Admin(tk.Toplevel):
     #Searching Mechanism
     def search_for_name_in_CSV(self, query):
@@ -22,9 +23,10 @@ class Admin(tk.Toplevel):
 
     def display_results(self, results):
         self.results_listbox.delete(0, tk.END)
+        SecondWindow()
 
         for result in results:
-            result_string = ",".join(result)
+            result_string = ", ".join(result)
             self.results_listbox.insert(tk.END, result_string)
 
     #Tkinter window
@@ -33,7 +35,7 @@ class Admin(tk.Toplevel):
 
         #Third Window
         self.title("Admin Console")
-        self.geometry("560x560")
+        self.geometry("490x340")
 
         #Header Two Font
         header_two_font=font.Font(self, family="Helvetica", size="12")
@@ -50,4 +52,10 @@ class Admin(tk.Toplevel):
 
         #Create results box below the field
         self.results_listbox=tk.Listbox(self)
-        self.results_listbox.grid(row=2, column=0, columnspan=2)
+        self.results_listbox.grid(row=4, column=0, columnspan=3, sticky="ew")
+        scrollbar = tk.Scrollbar(self, orient=tk.HORIZONTAL, command=self.results_listbox.xview)
+        self.results_listbox.config(xscrollcommand=scrollbar.set)
+        scrollbar.grid(row=5, column=0, sticky="ew", columnspan=3)
+
+        self.legend_label=tk.Label(self, text="Please use the opened window 2 as legend.")
+        self.legend_label.grid(row=6, column=0, columnspan=4)
