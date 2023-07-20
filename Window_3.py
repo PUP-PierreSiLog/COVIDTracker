@@ -2,6 +2,17 @@ import tkinter as tk
 from tkinter import font
 import csv
 class Admin(tk.Toplevel):
+    #Searching Mechanism
+    def search_for_name(query):
+        results = []
+        with open ("COVID CT.csv", "r") as file:
+            reader = csv.reader(file)
+            for row in reader:
+                if query.lower in row[0].lower():
+                    results.append(row)
+        return results
+
+    #Tkinter window
     def __init__(self):
         super().__init__()
 
