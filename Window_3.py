@@ -58,4 +58,6 @@ class Admin(tk.Toplevel):
         scrollbar.grid(row=5, column=0, sticky="ew", columnspan=3)
 
         self.legend_label=tk.Label(self, text="Please use the opened window 2 as legend.")
-        self.legend_label.grid(row=6, column=0, columnspan=4)
+        self.legend_label.grid(row=6, column=0, columnspan=3)
+        self.close_button=tk.Button(self, text="Close", command=self.destroy)
+        self.close_button.grid(row=6, column=2, sticky="ew")

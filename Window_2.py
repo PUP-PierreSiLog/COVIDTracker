@@ -41,9 +41,6 @@ class SecondWindow(tk.Toplevel):
     def radio_select(self):
         selected_option=self.radio_var.get()
         return selected_option
-    
-    def close(self):
-        self.destroy()
 
     def __init__(self):
         super().__init__()
