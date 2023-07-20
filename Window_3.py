@@ -1,10 +1,16 @@
 import tkinter as tk
 from tkinter import font
 import csv
+import os
 class Admin(tk.Toplevel):
     #Searching Mechanism
     def search_for_name_in_CSV(self, query):
         results = []
+        # Set the desired directory path
+        directory_path = "D:\[CMPE103] OOP\Final_Project"
+
+        # Change the current directory to the desired path
+        os.chdir(directory_path)
         with open ("COVID CT.csv", "r") as file:
             reader = csv.reader(file)
             for row in reader:
