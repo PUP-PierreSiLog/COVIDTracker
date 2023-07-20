@@ -11,7 +11,7 @@ class Admin(tk.Toplevel):
         with open (directory_path, "r") as file:
             reader = csv.reader(file)
             for row in reader:
-                if query.lower in row[0].lower():
+                if query.lower() in row[0].lower():
                     results.append(row)
         return results
 
