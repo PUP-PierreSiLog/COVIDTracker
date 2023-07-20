@@ -14,7 +14,7 @@ class Admin(tk.Toplevel):
 
     def perform_search(self):
         query = self.search_entry.get()
-        results = self.search_for_name(query)
+        results = self.search_for_name_in_CSV(query)
         self.display_results(results)
 
     def display_results(self, results):
@@ -40,11 +40,11 @@ class Admin(tk.Toplevel):
         #Search Text and Entries
         self.enter_label=tk.Label(self, text="Search by name: ")
         self.enter_label.grid(row=1, column=0)
-        self.search_entry=tk.Entry(self, width=50, command=self.perform_search)
+        self.search_entry=tk.Entry(self, width=50)
         self.search_entry.grid(row=1, column=1)
-        self.search_button=tk.Button(self, text="Search")
+        self.search_button=tk.Button(self, text="Search", command=self.perform_search)
         self.search_button.grid(row=1, column=2)
 
         #Create results box below the field
-        results_listbox=tk.Listbox()
+        results_listbox=tk.Listbox(self)
         results_listbox.grid(row=2, column=0, columnspan=2)
