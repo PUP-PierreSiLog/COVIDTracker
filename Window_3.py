@@ -49,5 +49,5 @@ class Admin(tk.Toplevel):
         self.search_button.grid(row=1, column=2)
 
         #Create results box below the field
-        results_listbox=tk.Listbox(self)
-        results_listbox.grid(row=2, column=0, columnspan=2)
+        self.results_listbox=tk.Listbox(self)
+        self.results_listbox.grid(row=2, column=0, columnspan=2)
