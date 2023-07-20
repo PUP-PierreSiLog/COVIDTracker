@@ -37,11 +37,13 @@ class SecondWindow(tk.Toplevel):
             writer.writerow([name, age, contact_number, address, fever_response, cough_response, pains_response, sore_throat_response, fatigue_response, diarrhea_response, taste_response, breathing_response, ftf_response, PPE_response, international_travel_response, domestic_travel_response, domestic_travel_place_response])
         
         messagebox.showinfo("Response", "Response Recorded!")
-        
 
     def radio_select(self):
         selected_option=self.radio_var.get()
         return selected_option
+    
+    def close(self):
+        self.destroy()
 
     def __init__(self):
         super().__init__()
@@ -238,11 +240,16 @@ class SecondWindow(tk.Toplevel):
         self.submit_instruction=tk.Label(self, text="PART 3: SUBMISSION OF DATA", font=header_font)
         self.final_label=tk.Label(self, text="Please click the Submit button on your right if you are done.", wraplength=400)
         self.submit_instruction.grid(row=21, column=0, sticky="ew", columnspan=4)
-        self.final_label.grid(row=22, column=0, columnspan=3)
+        self.final_label.grid(row=22, column=0, columnspan=2)
 
-        #Buttton
+        #Back Button
         self.submit_button=tk.Button(self, text="Submit", command=self.save_user_response)
+        self.submit_button.grid(row=22, column=2)
+
+        #Button
+        self.submit_button=tk.Button(self, text="Close", command=self.destroy)
         self.submit_button.grid(row=22, column=3)
+
 
 
         
