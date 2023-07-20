@@ -3,7 +3,7 @@ from tkinter import font
 import csv
 class Admin(tk.Toplevel):
     #Searching Mechanism
-    def search_for_name(query):
+    def search_for_name_in_CSV(query):
         results = []
         with open ("COVID CT.csv", "r") as file:
             reader = csv.reader(file)
@@ -11,6 +11,9 @@ class Admin(tk.Toplevel):
                 if query.lower in row[0].lower():
                     results.append(row)
         return results
+
+    def perform_search(self):
+        query = self.search_entry.get()
 
     #Tkinter window
     def __init__(self):
